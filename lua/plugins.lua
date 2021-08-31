@@ -4,27 +4,26 @@ require 'utils/bootstrap_packer'
 
 return require('packer').startup(function()
 	use "wbthomason/packer.nvim"
-	use "chriskempson/base16-vim"
+	use {
+		"chriskempson/base16-vim",
+		config = function()
+			require "colors"
+		end
+	}
 
 	use {
 		"kyazdani42/nvim-web-devicons",
-		after = "base16-vim",
-		config = function()
-			--require "plugins.configs.icons"
-		end
+		after = "base16-vim"
 	}
 
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		event = "BufRead",
-		config = function()
-			--require "config/treesitter"
-		end
+		event = "BufRead"
 	}
 
 	use {
 		"kabouzeid/nvim-lspinstall",
-		event = "BufRead",
+		event = "BufRead"
 	}
 
 	use {
@@ -37,10 +36,7 @@ return require('packer').startup(function()
 
 	use {
 		"onsails/lspkind-nvim",
-		event = "BufEnter",
-		config = function()
-			--require("plugins.configs.others").lspkind()
-		end
+		event = "BufEnter"
 	}
 
 	use "phaazon/hop.nvim"
@@ -53,7 +49,6 @@ return require('packer').startup(function()
 
 	use {
 		"nvim-telescope/telescope.nvim",
-		--cmd = "Telescope",
 		requires = {
 			{
 				"nvim-telescope/telescope-media-files.nvim",
