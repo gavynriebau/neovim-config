@@ -4,7 +4,7 @@ vim.cmd([[
 colorscheme base16-chalk
 
 " Black background
-highlight Normal guibg=#000000
+"highlight Normal guibg=#000000
 
 " Diffmode colors
 highlight DiffAdd cterm=NONE ctermfg=0 ctermbg=2 gui=NONE guifg=NONE guibg=#004000
