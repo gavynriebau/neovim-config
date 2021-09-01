@@ -34,11 +34,6 @@ return require('packer').startup(function()
 		end
 	}
 
-	use {
-		"onsails/lspkind-nvim",
-		event = "BufEnter"
-	}
-
 	use "phaazon/hop.nvim"
 	use {
 		"kyazdani42/nvim-tree.lua",
@@ -52,8 +47,7 @@ return require('packer').startup(function()
 		requires = {
 			{
 				"nvim-telescope/telescope-media-files.nvim",
-				"nvim-lua/plenary.nvim",
-				"nvim-lua/popup.nvim"
+				"nvim-lua/plenary.nvim"
 			},
 		},
 		config = function()
@@ -68,5 +62,6 @@ return require('packer').startup(function()
 			require("neoscroll").setup()
 		end
 	}
+
 
 end)
