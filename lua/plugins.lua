@@ -4,21 +4,33 @@ require 'utils/bootstrap_packer'
 
 return require('packer').startup(function()
 	use "wbthomason/packer.nvim"
+	use "phaazon/hop.nvim"
+
+	-- Colorschemes
+	use "dracula/vim"
+	use "rakr/vim-one"
+	use "tyrannicaltoucan/vim-deep-space"
+	use "romainl/Apprentice"
+	use "yorickpeterse/happy_hacking.vim"
+	use "arcticicestudio/nord-vim"
+	use "sainnhe/sonokai"
+	use "Mangeshrex/uwu.vim"
+
 	use {
-		"chriskempson/base16-vim",
-		config = function()
-			require "colors"
-		end
+		"Th3Whit3Wolf/onebuddy",
+		requires = "tjdevries/colorbuddy.vim"
 	}
 
 	use {
 		"kyazdani42/nvim-web-devicons",
-		after = "base16-vim"
 	}
 
 	use {
 		"nvim-treesitter/nvim-treesitter",
-		event = "BufRead"
+		event = "BufRead",
+		config = function()
+			require "config/treesitter"
+		end
 	}
 
 	use {
@@ -27,14 +39,22 @@ return require('packer').startup(function()
 	}
 
 	use {
-		"neovim/nvim-lspconfig",
+		"onsails/lspkind-nvim",
 		after = "nvim-lspinstall",
 		config = function()
-			require "config/lsp"
+			require "config/lsp-kind"
 		end
 	}
 
-	use "phaazon/hop.nvim"
+	use {
+		"neovim/nvim-lspconfig",
+		after = "lspkind-nvim",
+		config = function()
+			require "config/lsp"
+			--require'lspconfig'.rust_analyzer.setup{}
+		end
+	}
+
 	use {
 		"kyazdani42/nvim-tree.lua",
 		config = function()
@@ -71,5 +91,28 @@ return require('packer').startup(function()
 		end
 	}
 
+	--use {
+	--	"hrsh7th/nvim-cmp",
+	--	requires = {
+	--		--"hrsh7th/vim-vsnip",
+	--		--"hrsh7th/cmp-buffer",
+	--	},
+	--	config = function()
+	--		--require("cmp").setup {
+	--		--	sources = {
+	--		--		{ name = "nvim_lsp" }
+	--		--	}
+	--		--}
+	--		local settings = require("config/autocomplete")()
+	--		require("cmp").setup(settings)
+	--	end,
+	--}
+	--
+	--use {
+	--	"glepnir/lspsaga.nvim",
+	--	config = function()
+	--		require("lspsaga").init_lsp_saga()
+	--	end
+	--}
 
 end)

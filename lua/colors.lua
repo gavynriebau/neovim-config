@@ -1,10 +1,17 @@
 log("Start colors")
 
 vim.cmd([[
-colorscheme base16-chalk
+" Auto-change background to be a little darker for a couple color schemes after colorscheme change
+augroup MyColors
+	autocmd!
+	autocmd ColorScheme dracula highlight Normal ctermfg=253 ctermbg=236 guifg=#F8F8F2 guibg=#181A26
+	autocmd ColorScheme onebuddy highlight Normal guifg=#abb2bf guibg=#080c14 guisp=none
 
-" Black background
-"highlight Normal guibg=#000000
+	" Black hover windows
+	autocmd ColorScheme * highlight NormalFloat guifg=#abb2bf guibg=#000000 guisp=none
+augroup END
+
+colorscheme onebuddy
 
 " Diffmode colors
 highlight DiffAdd cterm=NONE ctermfg=0 ctermbg=2 gui=NONE guifg=NONE guibg=#004000

@@ -4,11 +4,10 @@ if not present then
 end
 
 ts_config.setup {
-   ensure_installed = {
-      "lua",
-   },
-   highlight = {
-      enable = true,
-      use_languagetree = true,
-   },
+	ensure_installed = "all",
+	highlight = {
+		enable = true,
+		use_languagetree = true,
+		additional_vim_regex_highlighting = false,
+	},
 }
