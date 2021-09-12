@@ -1,6 +1,10 @@
 local present, lspconfig = pcall(require, "lspconfig")
 
-local servers = { 'rust', 'typescript', 'csharp' }
+local servers = {
+	'rust',
+	'typescript',
+	'csharp'
+}
 
 if not present then
    return
@@ -46,7 +50,8 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local function setup_servers()
    for _, lang in pairs(servers) do
-      lspconfig[lang].setup {
+	  local item = lspconfig[lang]
+	  item.setup {
          on_attach = on_attach,
          capabilities = capabilities,
          -- root_dir = vim.loop.cwd,

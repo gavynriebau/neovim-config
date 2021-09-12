@@ -109,12 +109,5 @@ return require('packer').startup(function()
 			require("cmp").setup(settings)
 		end,
 	}
-	--
-	--use {
-	--	"glepnir/lspsaga.nvim",
-	--	config = function()
-	--		require("lspsaga").init_lsp_saga()
-	--	end
-	--}
 
 end)
