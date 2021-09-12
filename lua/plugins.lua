@@ -35,7 +35,9 @@ return require('packer').startup(function()
 
 	use {
 		"kabouzeid/nvim-lspinstall",
-		event = "BufRead"
+		config = function()
+			require("lspinstall").setup()
+		end
 	}
 
 	use {
@@ -48,10 +50,8 @@ return require('packer').startup(function()
 
 	use {
 		"neovim/nvim-lspconfig",
-		after = "lspkind-nvim",
 		config = function()
 			require "config/lsp"
-			--require'lspconfig'.rust_analyzer.setup{}
 		end
 	}
 
@@ -91,22 +91,24 @@ return require('packer').startup(function()
 		end
 	}
 
-	--use {
-	--	"hrsh7th/nvim-cmp",
-	--	requires = {
-	--		--"hrsh7th/vim-vsnip",
-	--		--"hrsh7th/cmp-buffer",
-	--	},
-	--	config = function()
-	--		--require("cmp").setup {
-	--		--	sources = {
-	--		--		{ name = "nvim_lsp" }
-	--		--	}
-	--		--}
-	--		local settings = require("config/autocomplete")()
-	--		require("cmp").setup(settings)
-	--	end,
-	--}
+	use {
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/vim-vsnip",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-nvim-lsp",
+		},
+		config = function()
+			--require("cmp").setup {
+			--	sources = {
+			--		{ name = "nvim_lsp" }
+			--	}
+			--}
+			local settings = require("config/autocomplete")()
+
+			require("cmp").setup(settings)
+		end,
+	}
 	--
 	--use {
 	--	"glepnir/lspsaga.nvim",

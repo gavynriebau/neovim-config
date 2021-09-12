@@ -68,7 +68,9 @@ return function()
       ghost_text = false,
     },
 
-    sources = {},
+    sources = {
+		{ name = "nvim_lsp" }
+	},
   }
 end
 
