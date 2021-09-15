@@ -5,7 +5,7 @@ end
 
 ts_config.setup {
 	ensure_installed = "all",
-	ignore_install = { "haskell" } -- Causes error on Mac OS
+	ignore_install = { "haskell" }, -- Causes error on Mac OS
 	highlight = {
 		enable = true,
 		use_languagetree = true,
