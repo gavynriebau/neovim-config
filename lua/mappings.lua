@@ -17,12 +17,10 @@ m('n', '<Leader>ts', ':Telescope lsp_document_symbols<CR>', o)
 m('n', '<Leader>tws', ':Telescope lsp_workspace_symbols<CR>', o)
 m('n', '<Leader>tr', ':Telescope lsp_references<CR>', o)
 m('n', '<Leader>tb', ':Telescope buffers<CR>', o)
+m('n', '<F4>', ':set hlsearch!<CR>', o)
 m('n', '<F10>', ':ls<CR>', o)
 m('n', '<F11>', ':bp<CR>', o)
 m('n', '<F12>', ':bn<CR>', o)
 m('t', '<Esc>', '<C-\\><C-n>', o)
-
--- TODO: REMOVE
-m('n', '<Leader>sc', '<cmd>lua require("lspsaga.codeaction").code_action()<CR>', o)
 
 log("End mappings")
