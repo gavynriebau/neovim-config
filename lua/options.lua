@@ -3,7 +3,7 @@ log("Start options")
 local o = vim.opt
 o.number = true
 o.termguicolors = true
-o.wrap = true
+o.wrap = false
 o.tabstop = 4
 o.shiftwidth = 4
 o.autoindent = true
