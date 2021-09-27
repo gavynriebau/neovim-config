@@ -6,5 +6,6 @@ require 'plugins'
 require 'options'
 require 'mappings'
 require 'colors'
+require 'commands'
 
 log("End init.lua")
